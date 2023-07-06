@@ -1,0 +1,23 @@
+package com.example.NotesPasswordManager.NotesPasswordManager.service;
+
+import com.example.NotesPasswordManager.NotesPasswordManager.models.User;
+import com.example.NotesPasswordManager.NotesPasswordManager.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService {
+
+    private UserRepository userRepository;
+
+    @Autowired
+    public UserService(UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
+
+    public User registerUser(User user){
+       User registeredUser =  userRepository.save(user);
+       return registeredUser;
+    }
+
+}
